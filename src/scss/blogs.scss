@@ -1,0 +1,204 @@
+// Import external styles
+@import 'normalize.css';
+@import 'variables.scss';
+
+// Reset default styles
+* {
+    padding: 0;
+    margin: 0;
+}
+
+// Hide scrollbar
+html {
+    scrollbar-width: none;
+}
+
+// Remove underline from links
+a {
+    text-decoration: none;
+}
+
+// Remove bullet points from lists
+ul {
+    list-style-type: none;
+}
+
+// Set common styles for the body
+body {
+    font-family: 'Edu SA Beginner', cursive;
+    color: $color-primary;
+    background: url('/public/images/songsBackground.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+// Page title styles
+.title {
+    text-align: center;
+    margin: 18px 0 44px;
+}
+
+// Set wrapper styles
+.wrapper {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+// Blog card styles
+.blog-card {
+    display: flex;
+    padding: 24px 34px 24px 24px;
+    background: rgba(70, 67, 67, 0.35);
+    border-radius: 30px;
+
+    .blog-image {
+        width: 200%;
+        height: 300px;
+        border-radius: 28px;
+    }
+}
+
+// Blog description styles
+.blog-description {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+
+    .description {
+        font-size: 23px;
+        margin-bottom: auto;
+    }
+
+    &__title {
+        margin: 50px 0 16px 0;
+    }
+
+    .date {
+        text-align: end;
+    }
+}
+
+// Responsive styles for different screen sizes
+@media (max-width: 1239px) {
+    .blog-card {
+        .blog-image {
+            width: 100%;
+            height: auto;
+        }
+        flex-direction: column;
+    }
+
+    .blog-description {
+        margin-left: 10px;
+
+        .date {
+            margin-top: 30px;
+        }
+    }
+
+    .blog-info {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 569px) {
+    .blog-card {
+        .blog-image {
+            height: 250px;
+        }
+    }
+
+    .blog-description {
+        &__title {
+            margin-top: 15px;
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .blog-card {
+        .blog-image {
+            height: 200px;
+        }
+    }
+
+    .blog-description {
+        
+        
+        .date {
+            margin-top: 10px;
+        }
+        &__title {
+            margin-top: 10px;
+        }
+    }
+}
+
+// Blog info styles
+.blog-info {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 14px;
+
+    .arrow {
+        color: white;
+        transition: 0.1s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+// Blog duration icon styles
+.blog-duration__icon {
+    display: flex;
+    gap: 12px;
+}
+
+// Header styles
+header {
+    @include header;
+}
+
+.header__burger-btn {
+    display: none;
+}
+
+// Media query for smaller screens
+@media (max-width: 996px) {
+    header nav #menu {
+        right: -365px;
+    }
+
+    header.open #menu {
+        transform: translateX(-136%);
+    }
+
+    @include burgerMenu;
+    .navigation {
+        flex-direction: row;
+    }
+}
+
+// Loader styles
+.loader-wrapper {
+    @include loader;
+}
+
+// Loaded styles
+.loaded {
+    @include loaded;
+}
+.description {
+    font-size: 22px;
+    margin-bottom: auto;
+}
+.blog-description__title {
+    font-size: 32px;
+    
+}

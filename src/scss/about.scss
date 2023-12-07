@@ -1,0 +1,133 @@
+// Import external styles
+@import 'normalize.css';
+@import 'variables.scss';
+
+// Reset default styles
+* {
+    padding: 0;
+    margin: 0;
+}
+
+// Hide scrollbar
+html {
+    scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+
+// Remove underline from links
+a {
+    text-decoration: none;
+}
+
+// Remove bullet points from lists
+ul {
+    list-style-type: none;
+}
+
+// Set common styles for the body
+body {
+    font-family: 'Edu SA Beginner', cursive;
+    color: $color-primary;
+    background: url('/public/images/AboutPagePicture.jpg');
+    backdrop-filter: blur(9px);
+    background-size: cover;
+    
+    
+     
+}
+
+  
+
+/*------------------------------ ABOUT PAGE ------------------------------*/
+
+// Set wrapper styles
+.wrapper {
+    margin: 0 auto;
+    width: 80%;
+}
+
+// About page layout
+.page__about {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 1000px;
+
+    .title {
+        font-size: 40px;
+        text-align: center;
+    }
+}
+
+// Description section styles
+.description {
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+
+    &__title {
+        text-align: center;
+        font-size: 30px;
+        margin: 30px 0;
+    }
+}
+
+// Header styles
+header {
+    @include header;
+}
+
+.header__burger-btn {
+    display: none;
+}
+
+// Media query for smaller screens
+@media (max-width: 996px) {
+    .page__about {
+        .title {
+            font-size: 40px;
+        }
+    }
+
+    .description {
+        font-size: 18px;
+
+        &__title {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+    }
+
+    // Adjust menu position for mobile
+    header nav #menu {
+        right: -365px;
+    }
+
+    header.open #menu {
+        transform: translateX(-134%);
+    }
+
+    // Include styles for burger menu
+    @include burgerMenu;
+
+    // Adjust navigation layout
+    .navigation {
+        flex-direction: row;
+    }
+}
+
+// Music card styles
+.music-card {
+    @include music-card;
+}
+
+// Loader styles
+.loader-wrapper {
+    @include loader;
+}
+
+.loaded {
+    @include loaded;
+}

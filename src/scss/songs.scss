@@ -1,0 +1,223 @@
+@import 'normalize.css';
+@import 'variables.scss';
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+html{
+    scrollbar-width: none;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+
+body {
+    font-family: 'Edu SA Beginner', cursive;
+    color: $color-primary;
+    background: url('/public/images/songsBackground.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+
+header{
+    @include header;
+}
+.wrapper {
+    margin: 5rem auto;
+    width: 50%;
+}
+
+.icon-wrapper {
+    position: fixed;
+    bottom: 24px;
+    left: 37px;
+
+    display: flex;
+    justify-content: space-between;
+    width: 10rem;
+    .icon{
+        transform: scale(1.4);
+    }
+}
+.songs-bars {
+    
+    display: flex;
+    justify-content: space-between;
+    width: 15px;
+    height: 15px;
+    
+      
+      span {
+        width: 3px;
+        height: 100%;
+        background-color: white;
+        border-radius: 3px;
+        transform-origin: bottom;
+        content: '';
+      }
+    }
+.active{
+    @keyframes bounce {
+        10% {
+          transform: scaleY(0.3); /* start by scaling to 30% */
+        }
+      
+        30% {
+          transform: scaleY(1); /* scale up to 100% */
+        }
+      
+        60% {
+          transform: scaleY(0.5); /* scale down to 50% */
+        }
+      
+        80% {
+          transform: scaleY(0.75); /* scale up to 75% */
+        }
+      
+        100% {
+          transform: scaleY(0.6); /* scale down to 60% */
+        }
+      }
+      span{
+        animation: bounce 2.2s ease infinite alternate;
+
+        &:nth-of-type(2) {
+            animation-delay: -2.2s; /* Start at the end of animation */
+          }
+        
+          &:nth-of-type(3) {
+            animation-delay: -3.7s; /* Start mid-way of return of animation */
+          }
+      }
+}
+    
+.download-icon{
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.1)
+  }
+  &:active{
+    transform: scale(1)
+  }
+}
+.downloaded{
+  &:hover{
+    transform: none;
+  }
+}
+.header__burger-btn {
+  display: none;
+}
+@media(max-width: 996px){
+  header nav #menu{
+    right: -365px;
+  }
+  header.open #menu{
+      transform: translateX(-137%);;
+  }
+  @include burgerMenu;
+  .navigation{
+    flex-direction: row;
+  }
+}
+.songs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 19px;
+}
+
+
+.music-card {
+    @include music-card;
+    
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    .controls{
+      
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      
+    }
+    figcaption{
+      
+      margin-bottom: auto;
+    }
+    &__wrapper{
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 30%;
+    flex-grow: 1;
+    gap: 10px;
+  }
+
+    &__image {
+        height: 140px;
+        width: 100%;
+        border-radius: 10px;
+    }
+ 
+  .song-name{
+    font-size: 22px;
+  }
+  .singer-name{
+    font-size: 16px;
+  }
+}
+@media(max-width: 1297px){
+  .wrapper{
+    width: 60%;
+  }
+  .icon-wrapper{
+    flex-direction: column;
+  }
+  .icon-wrapper .icon {
+    width: fit-content;
+    margin-bottom: 20px;
+  }
+  
+}
+@media(max-width: 967px){
+  .wrapper{
+    width: 75%;
+  }
+  
+}
+@media(max-width: 685px){
+  .wrapper{
+    width: 70%;
+  }
+  .icon-wrapper{
+    left: 24px;
+  }
+  
+}
+@media(max-width: 496px){
+  .wrapper{
+    width: 65%;
+  }
+
+  
+}
+
+
+
+.loader-wrapper{
+    @include loader;
+}
+
+.loaded{
+    @include loaded;
+}
+

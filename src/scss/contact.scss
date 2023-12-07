@@ -1,0 +1,312 @@
+@import 'normalize.css';
+@import 'variables.scss';
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+html{
+    scrollbar-width: none;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+
+body {
+    font-family: 'Edu SA Beginner', cursive;
+    color: $color-primary;
+    background: url('/public/images/songsBackground.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+
+
+
+
+
+textarea:focus,
+input:focus {
+  outline: 2px solid rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px; 
+}
+
+.title{
+    text-align: center;
+    margin: 0 0 70px 0;
+}
+
+.wrapper{
+    display: flex;
+
+    
+}
+
+#myForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 5rem;
+    
+    .input-line{
+        display: flex;
+        gap: 24px;
+        
+}
+#name{
+  flex-grow: 1;
+  
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  color: $color-primary;
+  padding: 6px;
+}
+#email{
+  flex-grow: 1;
+
+
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  color: $color-primary;
+  padding: 6px;
+
+}
+    
+.container {
+    padding-top: 50px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+
+    .button {
+      display: inline-block;
+      padding: .75rem 1.25rem;
+      border-radius: 10rem;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: .15rem;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color;
+        border-radius: 10rem;
+        
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: rgba(232, 37, 222, 0.189) ;
+        transition: all .3s;
+        border-radius: 10rem;
+      }
+      &:hover {
+        color: #fff;
+        &:before {
+          width: 100%;
+        }
+      }
+      &:active{
+        transform: scale(0.9);
+      }
+    }
+    
+    /* optional reset for presentation */
+
+   
+    h1 {
+      text-transform: uppercase;
+      font-size: .8rem;
+      margin-bottom: 2rem;
+      color: #777;
+    }
+    span {
+      display: block;
+      margin-top: 2rem;
+      font-size: .7rem;
+      color: #777;
+      
+      a {
+        font-size: .7rem;
+        color: white;
+        text-decoration: underline;
+        
+      }
+    }
+}
+    .input-line-column{
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        #subject{
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid white;
+            color: $color-primary;
+            padding: 6px;
+
+        }
+        
+
+    }
+    
+}
+#body{
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  color: $color-primary;
+
+  resize: none;
+  padding: 10px;
+  width: 800px;
+}
+
+
+
+#collaboration-mail{
+    margin-left: 20%;
+    position: relative;
+    .mail{
+        position: absolute;
+        top: 134px;
+        right: -71px;
+        transition: 0.3s;
+        a{
+            color: white;
+        }
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .rotating {
+    -webkit-animation: rotating 20s linear infinite;
+    -moz-animation: rotating 20s linear infinite;
+    -ms-animation: rotating 20s linear infinite;
+    -o-animation: rotating 20s linear infinite;
+    animation: rotating 20s linear infinite;
+  }
+.rotated{
+  user-select: none;
+}
+
+
+
+
+
+
+
+
+@media(max-width: 1321px){
+  .title{
+    margin-top: 30px ;
+  }
+  .wrapper{
+    flex-direction: column;
+  }
+  #myForm{
+    margin-right: 5rem;
+   
+  }
+  #body{
+   
+    width: auto;
+  }
+  #collaboration-mail{
+    margin: 50px auto;
+  }
+  
+}
+@media(max-width: 717px){
+  #myForm{
+    .input-line{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+
+
+
+header{
+    @include header;
+}
+.header__burger-btn {
+  display: none;
+}
+@media(max-width: 996px){
+  header nav #menu{
+    right: -365px;
+  }
+  header.open #menu{
+    transform: translateX(-130%);
+  }
+  
+  @include burgerMenu;
+  .navigation{
+    flex-direction: row;
+  }
+  
+ 
+}
+.loader-wrapper{
+    @include loader;
+}
+
+.loaded{
+    @include loaded;
+}
